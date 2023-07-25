@@ -1,0 +1,8 @@
+{
+  "name": "driver-manager",
+  "version-string": "1.0.0",
+  "builtin-baseline": "f6a5d4e8eb7476b8d7fc12a56dff300c1c986131",
+  "dependencies": [
+    "spdlog"
+  ]
+}
