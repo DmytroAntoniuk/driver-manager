@@ -1,8 +1,12 @@
 #include "scanner.h"
 
+// clang-format off
+#include "Windows.h"
 #include <fstream>
 #include <prsht.h>
 #include <setupapi.h>
+#include <iostream>
+// clang-format on
 
 #define BUFLEN 4096
 
