@@ -1,3 +1,11 @@
-#include <iostream>
+#include <logs-dir-path.h>
 
-int main() {}
+#include "logger-configurator.h"
+#include "scanner.h"
+int main()
+{
+    Brand::ConfigureLogger();
+
+    Scanner scanner;
+    scanner.Run();
+}
