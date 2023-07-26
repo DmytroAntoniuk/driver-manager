@@ -4,9 +4,13 @@
     <ClCompile Include="src\scanner.cpp">
       <Filter>scanner</Filter>
     </ClCompile>
-    <ClCompile Include="src\device.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\device.cpp">
+      <Filter>device</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scanner">
@@ -14,6 +18,15 @@
     </Filter>
     <Filter Include="config">
       <UniqueIdentifier>{423db39f-ce54-4a9b-bc39-8569ecfdc4c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="device">
+      <UniqueIdentifier>{6a338c8f-56ef-45c8-9a3d-bf7742530006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logger">
+      <UniqueIdentifier>{421d1ee5-38ce-4d78-9797-bd1c3a5bbfc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{9f8d4406-856f-44b5-bc58-d01b0d6ac693}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -25,9 +38,17 @@
     <ClInclude Include="include\scanner.h">
       <Filter>scanner</Filter>
     </ClInclude>
-    <ClInclude Include="include\device.h" />
-    <ClInclude Include="include\logger-configurator.h" />
-    <ClInclude Include="include\logs-dir-path.h" />
-    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="include\device.h">
+      <Filter>device</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logger-configurator.h">
+      <Filter>logger</Filter>
+    </ClInclude>
+    <ClInclude Include="include\logs-dir-path.h">
+      <Filter>logger</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
