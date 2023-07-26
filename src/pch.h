@@ -7,3 +7,4 @@
 #include "Windows.h"
 #include <setupapi.h>
 // clang-format on
+#include <logger/logger.h>
