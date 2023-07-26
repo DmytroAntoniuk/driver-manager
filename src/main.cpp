@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include <logs-dir-path.h>
 
 #include "logger-configurator.h"

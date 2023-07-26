@@ -1,12 +1,9 @@
+#include "pch.h"
+
 #include "scanner.h"
 
 #include <fstream>
 #include <logger/logger.h>
-
-// clang-format off
-#include "Windows.h"
-#include <setupapi.h>
-// clang-format on
 
 #define BUFLEN 4096
 
