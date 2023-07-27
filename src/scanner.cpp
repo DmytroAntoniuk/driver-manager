@@ -19,4 +19,6 @@ void Scanner::Run()
         LOG_ERROR("can't get devices list. error: {}", GetLastError());
         return;
     }
+
+    Device device(h_dev_info, 0);
 }

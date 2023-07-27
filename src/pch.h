@@ -8,3 +8,6 @@
 #include <setupapi.h>
 // clang-format on
 #include <logger/logger.h>
+#include <map>
+#include <string_helper/converter.h>
+#include <vector>

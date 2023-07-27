@@ -59,39 +59,39 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\props\logger_lib_md.props" />
-    <Import Project="..\props\vcpkg_manifest.props" />
-    <Import Project="..\props\output_directory.props" />
-    <Import Project="..\props\language_standard.props" />
-    <Import Project="..\props\filesystem_helper_lib_md.props" />
-    <Import Project="..\props\string_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\logger_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\vcpkg_manifest.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\output_directory.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\language_standard.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\filesystem_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\string_helper_lib_md.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\props\logger_lib_md.props" />
-    <Import Project="..\props\vcpkg_manifest.props" />
-    <Import Project="..\props\output_directory.props" />
-    <Import Project="..\props\language_standard.props" />
-    <Import Project="..\props\filesystem_helper_lib_md.props" />
-    <Import Project="..\props\string_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\logger_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\vcpkg_manifest.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\output_directory.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\language_standard.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\filesystem_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\string_helper_lib_md.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\props\logger_lib_md.props" />
-    <Import Project="..\props\vcpkg_manifest.props" />
-    <Import Project="..\props\output_directory.props" />
-    <Import Project="..\props\language_standard.props" />
-    <Import Project="..\props\filesystem_helper_lib_md.props" />
-    <Import Project="..\props\string_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\logger_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\vcpkg_manifest.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\output_directory.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\language_standard.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\filesystem_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\string_helper_lib_md.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\props\logger_lib_md.props" />
-    <Import Project="..\props\vcpkg_manifest.props" />
-    <Import Project="..\props\output_directory.props" />
-    <Import Project="..\props\language_standard.props" />
-    <Import Project="..\props\filesystem_helper_lib_md.props" />
-    <Import Project="..\props\string_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\logger_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\vcpkg_manifest.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\output_directory.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\language_standard.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\filesystem_helper_lib_md.props" />
+    <Import Project="$(AVANQUEST_LIBRARIES_ROOT)\props\string_helper_lib_md.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
