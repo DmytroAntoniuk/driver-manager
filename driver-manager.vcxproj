@@ -188,7 +188,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\collection.cpp" />
     <ClCompile Include="src\device.cpp" />
+    <ClCompile Include="src\driverpack-task.cpp" />
+    <ClCompile Include="src\driverpack.cpp" />
+    <ClCompile Include="src\loadable-vector.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -197,15 +201,22 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\scanner.cpp" />
+    <ClCompile Include="src\state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\collection.h" />
+    <ClInclude Include="include\common.h" />
     <ClInclude Include="include\device.h" />
+    <ClInclude Include="include\driverpack-task.h" />
+    <ClInclude Include="include\driverpack.h" />
+    <ClInclude Include="include\loadable-vector.h" />
     <ClInclude Include="include\logger-configurator.h" />
     <ClInclude Include="include\logs-dir-path.h" />
     <ClInclude Include="include\scanner.h" />
+    <ClInclude Include="include\state.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
