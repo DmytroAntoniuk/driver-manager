@@ -45,7 +45,7 @@ Device::Device(HDEVINFO h_dev_info, const DWORD member_index) : _h_dev_info(h_de
 
     for (const auto& prop : propertiesMap)
     {
-        ReadProperty(prop.first, prop.second);
+        // ReadProperty(prop.first, prop.second);
     }
 
     // ret = CM_Get_DevNode_Status(&status, &problem, device_info_data_loc->DevInst, 0);
@@ -57,42 +57,42 @@ Device::Device(HDEVINFO h_dev_info, const DWORD member_index) : _h_dev_info(h_de
 
 void Device::ReadProperty(const int id, unsigned& value)
 {
-    DWORD buffer_size = 0;
-    DWORD data_t      = 0;
+    // DWORD buffer_size = 0;
+    // DWORD data_t      = 0;
 
-    // First, determine the buffer size needed
-    if (!SetupDiGetDeviceRegistryProperty(_h_dev_info, _device_info_data, id, &data_t, nullptr, 0, &buffer_size))
-    {
-        LOG_ERROR("Error: {}", GetLastError());
-        return;
-    }
+    //// First, determine the buffer size needed
+    // if (!SetupDiGetDeviceRegistryProperty(_h_dev_info, _device_info_data, id, &data_t, nullptr, 0, &buffer_size))
+    //{
+    //     LOG_ERROR("Error: {}", GetLastError());
+    //     return;
+    // }
 
-    // Allocate buffer using std::vector
-    std::vector<BYTE> buffer(buffer_size);
+    //// Allocate buffer using std::vector
+    // std::vector<BYTE> buffer(buffer_size);
 
-    if (!SetupDiGetDeviceRegistryProperty(_h_dev_info, _device_info_data, id, &data_t, buffer.data(), buffer_size, &buffer_size))
-    {
-        LOG_ERROR("Error: {}", GetLastError());
-        return;
-    }
+    // if (!SetupDiGetDeviceRegistryProperty(_h_dev_info, _device_info_data, id, &data_t, buffer.data(), buffer_size, &buffer_size))
+    //{
+    //     LOG_ERROR("Error: {}", GetLastError());
+    //     return;
+    // }
 
-    // If the property is REG_DWORD, copy directly into val
-    if (data_t == REG_DWORD && buffer_size >= sizeof(DWORD))
-    {
-        value = *reinterpret_cast<DWORD*>(buffer.data());
-    }
-    else
-    {
-        // If not REG_DWORD, allocate space in the 'state->textas' pool and copy the data
-        value   = static_cast<ofst>(state->textas.alloc(buffer_size));
-        BYTE* p = state->textas.get(*val);
-        if (p != nullptr)
-        {
-            memcpy(p, buffer.data(), buffer_size);
-        }
-        else
-        {
-            Log.print_file("Failed to allocate memory for Property %d\n", id);
-        }
-    }
+    //// If the property is REG_DWORD, copy directly into val
+    // if (data_t == REG_DWORD && buffer_size >= sizeof(DWORD))
+    //{
+    //     value = *reinterpret_cast<DWORD*>(buffer.data());
+    // }
+    // else
+    //{
+    //     // If not REG_DWORD, allocate space in the 'state->textas' pool and copy the data
+    //     value   = static_cast<ofst>(state->textas.alloc(buffer_size));
+    //     BYTE* p = state->textas.get(*val);
+    //     if (p != nullptr)
+    //     {
+    //         memcpy(p, buffer.data(), buffer_size);
+    //     }
+    //     else
+    //     {
+    //         Log.print_file("Failed to allocate memory for Property %d\n", id);
+    //     }
+    // }
 }
