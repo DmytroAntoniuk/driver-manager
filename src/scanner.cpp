@@ -4,8 +4,6 @@
 
 #include "state.h"
 
-#define BUFLEN 4096
-
 void Scanner::Start()
 {
     LOG_DEBUG("start scan");
