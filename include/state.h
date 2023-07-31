@@ -6,6 +6,7 @@ class State
 public:
     static State& GetInstance();
 
+    Devices GetDevices() const;
     void AddDevice(const Device device);
 
 private:
