@@ -6,6 +6,7 @@
 
 Device::Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data) : _h_dev_info(h_dev_info), _dev_info_data(dev_info_data)
 {
+    LOG_DEBUG("ctor");
     const std::array<DWORD, 8> props = {
         SPDRP_DEVICEDESC, SPDRP_HARDWAREID, SPDRP_COMPATIBLEIDS, SPDRP_DRIVER, SPDRP_MFG, SPDRP_FRIENDLYNAME, SPDRP_CAPABILITIES, SPDRP_CONFIGFLAGS};
 
@@ -17,6 +18,8 @@ Device::Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data) : _h_dev_in
 
 void Device::ReadProperty(const DWORD id)
 {
+    LOG_DEBUG("read property {}", id);
+
     std::map<DWORD, std::wstring &> properties_map = {
         {SPDRP_DEVICEDESC, _device_desc},
         {SPDRP_HARDWAREID, _hardware_id},

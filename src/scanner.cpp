@@ -8,6 +8,7 @@
 
 void Scanner::Start()
 {
+    LOG_DEBUG("start scan");
     HDEVINFO h_device_info = SetupDiGetClassDevs(NULL, NULL, NULL, DIGCF_ALLCLASSES | DIGCF_PRESENT);
     if (h_device_info == INVALID_HANDLE_VALUE)
     {

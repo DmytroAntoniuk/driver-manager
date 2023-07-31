@@ -10,4 +10,8 @@ State& State::GetInstance()
     return instance;
 }
 
-void State::AddDevice(const Device device) { _devices.push_back(device); }
+void State::AddDevice(const Device device)
+{
+    LOG_DEBUG("add device");
+    _devices.push_back(device);
+}
