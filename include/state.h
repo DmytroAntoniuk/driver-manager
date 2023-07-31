@@ -7,7 +7,7 @@ public:
     static State& GetInstance();
 
     Devices GetDevices() const;
-    void AddDevice(const Device device);
+    Device AddDevice(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data);
 
 private:
     State();

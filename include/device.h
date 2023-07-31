@@ -3,7 +3,16 @@
 class Device
 {
 public:
-    Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data);
+    Device(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data);
+
+    const std::wstring& GetDeviceDesc() const;
+    const std::wstring& GetHardwareId() const;
+    const std::wstring& GetCompatibleIds() const;
+    const std::wstring& GetDriver() const;
+    const std::wstring& GetMfg() const;
+    const std::wstring& GetFriendlyName() const;
+    const std::wstring& GetCapabilities() const;
+    const std::wstring& GetConfigFlags() const;
 
 private:
     void ReadProperty(const DWORD id);

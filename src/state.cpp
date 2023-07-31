@@ -12,8 +12,8 @@ State& State::GetInstance()
 
 Devices State::GetDevices() const { return _devices; }
 
-void State::AddDevice(const Device device)
+Device State::AddDevice(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data)
 {
     LOG_DEBUG("add device");
-    _devices.push_back(device);
+    return _devices.emplace_back(h_dev_info, dev_info_data);
 }
