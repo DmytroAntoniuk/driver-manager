@@ -3,5 +3,5 @@
 class Scanner
 {
 public:
-    void Run();
+    void Start();
 };

@@ -3,15 +3,13 @@
 class Device
 {
 public:
-    Device(HDEVINFO h_dev_info, const DWORD member_index);
+    Device(HDEVINFO h_dev_info);
 
 private:
-    void ReadProperty(const int id, unsigned& value);
+    void ReadProperty(const DWORD id);
 
 private:
     HDEVINFO _h_dev_info;
-    std::wstring _instance_id;
-    PSP_DEVINFO_DATA _device_info_data;
 
     std::wstring _device_desc;
     std::wstring _hardware_id;
@@ -22,3 +20,5 @@ private:
     std::wstring _capabilities;
     std::wstring _config_flags;
 };
+
+using Devices = std::vector<Device>;

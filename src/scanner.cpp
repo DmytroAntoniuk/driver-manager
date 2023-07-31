@@ -6,19 +6,23 @@
 
 #define BUFLEN 4096
 
-void Scanner::Run()
+void Scanner::Start()
 {
-    LOG_DEBUG("scanner run");
-    HDEVINFO h_dev_info;
-    HKEY h_key;
-    wchar_t buf[BUFLEN];
-
-    h_dev_info = SetupDiGetClassDevs(nullptr, nullptr, nullptr, DIGCF_PRESENT | DIGCF_ALLCLASSES);
-    if (h_dev_info == INVALID_HANDLE_VALUE)
+    HDEVINFO h_device_info = SetupDiGetClassDevs(NULL, NULL, NULL, DIGCF_ALLCLASSES | DIGCF_PRESENT);
+    if (h_device_info == INVALID_HANDLE_VALUE)
     {
-        LOG_ERROR("can't get devices list. error: {}", GetLastError());
+        LOG_ERROR("SetupDiGetClassDevs failed. Error code: {}", GetLastError());
         return;
     }
 
-    Device device(h_dev_info, 0);
+    SP_DEVINFO_DATA device_info_data;
+    device_info_data.cbSize = sizeof(SP_DEVINFO_DATA);
+
+    for (DWORD index = 0; SetupDiEnumDeviceInfo(h_device_info, index, &device_info_data); ++index)
+    {
+        Device d(h_device_info);
+    }
+
+    SetupDiDestroyDeviceInfoList(h_device_info);
+    return;
 }
