@@ -11,6 +11,9 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="src\state.cpp">
+      <Filter>state</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scanner">
@@ -27,6 +30,9 @@
     </Filter>
     <Filter Include="pch">
       <UniqueIdentifier>{9f8d4406-856f-44b5-bc58-d01b0d6ac693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="state">
+      <UniqueIdentifier>{0bd25a94-afc9-49c0-accf-d2dc81e29dc9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="include\state.h">
+      <Filter>state</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

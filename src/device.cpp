@@ -17,7 +17,7 @@ Device::Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data) : _h_dev_in
 
 void Device::ReadProperty(const DWORD id)
 {
-    std::map<DWORD, std::wstring> properties_map = {
+    std::map<DWORD, std::wstring &> properties_map = {
         {SPDRP_DEVICEDESC, _device_desc},
         {SPDRP_HARDWAREID, _hardware_id},
         {SPDRP_COMPATIBLEIDS, _compatible_ids},

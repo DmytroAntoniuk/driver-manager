@@ -2,7 +2,7 @@
 
 #include "scanner.h"
 
-#include "device.h"
+#include "state.h"
 
 #define BUFLEN 4096
 
@@ -21,6 +21,7 @@ void Scanner::Start()
     for (DWORD index = 0; SetupDiEnumDeviceInfo(h_device_info, index, &device_info_data); ++index)
     {
         Device d(h_device_info, device_info_data);
+        State::GetInstance().AddDevice(d);
     }
 
     SetupDiDestroyDeviceInfoList(h_device_info);

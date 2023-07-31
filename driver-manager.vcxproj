@@ -197,6 +197,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\scanner.cpp" />
+    <ClCompile Include="src\state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".clang-format" />
@@ -206,6 +207,7 @@
     <ClInclude Include="include\logger-configurator.h" />
     <ClInclude Include="include\logs-dir-path.h" />
     <ClInclude Include="include\scanner.h" />
+    <ClInclude Include="include\state.h" />
     <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
