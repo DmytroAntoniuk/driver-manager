@@ -3,13 +3,14 @@
 class Device
 {
 public:
-    Device(HDEVINFO h_dev_info);
+    Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data);
 
 private:
     void ReadProperty(const DWORD id);
 
 private:
     HDEVINFO _h_dev_info;
+    SP_DEVINFO_DATA _dev_info_data;
 
     std::wstring _device_desc;
     std::wstring _hardware_id;

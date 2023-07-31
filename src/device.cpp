@@ -4,12 +4,12 @@
 
 #include <memory>
 
-Device::Device(HDEVINFO h_dev_info) : _h_dev_info(h_dev_info)
+Device::Device(HDEVINFO &h_dev_info, SP_DEVINFO_DATA &dev_info_data) : _h_dev_info(h_dev_info), _dev_info_data(dev_info_data)
 {
     const std::array<DWORD, 8> props = {
         SPDRP_DEVICEDESC, SPDRP_HARDWAREID, SPDRP_COMPATIBLEIDS, SPDRP_DRIVER, SPDRP_MFG, SPDRP_FRIENDLYNAME, SPDRP_CAPABILITIES, SPDRP_CONFIGFLAGS};
 
-    for (const auto& prop : props)
+    for (const auto &prop : props)
     {
         ReadProperty(prop);
     }
@@ -35,10 +35,7 @@ void Device::ReadProperty(const DWORD id)
     }
 
     TCHAR buffer[256];
-    SP_DEVINFO_DATA device_info_data;
-    device_info_data.cbSize = sizeof(SP_DEVINFO_DATA);
-
-    if (SetupDiGetDeviceRegistryProperty(_h_dev_info, &device_info_data, id, NULL, (BYTE*)buffer, sizeof(buffer), NULL))
+    if (SetupDiGetDeviceRegistryProperty(_h_dev_info, &_dev_info_data, id, NULL, (BYTE *)buffer, sizeof(buffer), NULL))
     {
         it->second = std::wstring(buffer);
         LOG_DEBUG("Device : {}", StringHelper::Converter::ToString(buffer));
