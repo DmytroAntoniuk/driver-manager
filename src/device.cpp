@@ -4,7 +4,7 @@
 
 #include <memory>
 
-Device::Device(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data) : _h_dev_info(h_dev_info), _dev_info_data(dev_info_data)
+Device::Device(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data) : _h_dev_info(h_dev_info), _dev_info_data(dev_info_data), _driver(nullptr)
 {
     LOG_DEBUG("ctor");
 
@@ -31,12 +31,12 @@ void Device::LoadDriver()
 
     if (_driver_id.empty())
     {
-        LOG_ERROR("driver for {} not found", GetDeviceDesc());
+        LOG_ERROR("driver for {} not found", StringHelper::Converter::ToString(GetDeviceDesc()));
         return;
     }
 
     HKEY hkey;
-    std::wstring subkey = std::format(L"SYSTEM\\CurrentControlSet\\Control\\Class\\{}", StringHelper::Converter::ToString(_driver_id));
+    std::wstring subkey = std::format(L"SYSTEM\\CurrentControlSet\\Control\\Class\\{}", _driver_id);
     int ret             = RegOpenKeyEx(HKEY_LOCAL_MACHINE, subkey.c_str(), 0, KEY_QUERY_VALUE, &hkey);
     switch (ret)
     {

@@ -4,7 +4,6 @@
 class Driver
 {
 public:
-    Driver() = default;
     Driver(HKEY hkey);
     void LoadProps();
 
