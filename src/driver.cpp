@@ -30,7 +30,15 @@ Driver::Driver(HKEY hkey) : _hkey(hkey)
 
 void Driver::LoadProps()
 {
-    std::array<std::wstring, 8> props = {L"DriverDesc", L"ProviderName", L"DriverDate", L"DriverVersion", L"MatchingDeviceId", L"InfPath", L"InfSection", L"InfSectionExt"};
+    std::array<std::wstring, 8> props = {
+        Props::DRIVER_DESC,
+        Props::PROVIDER_NAME,
+        Props::DRIVER_DATE,
+        Props::DRIVER_VERSION,
+        Props::MATCHING_DEVICE_ID,
+        Props::INF_PATH,
+        Props::INF_SECTION,
+        Props::INF_SECTION_EXT};
     for (const auto& prop : props)
     {
         ReadRegistryValue(prop);
@@ -42,14 +50,14 @@ void Driver::ReadRegistryValue(const std::wstring& value)
     LOG_DEBUG("read registry value");
 
     std::map<std::wstring, std::wstring&> properties_map = {
-        {L"DriverDesc", _driver_desc},
-        {L"ProviderName", _provider_name},
-        {L"DriverDate", _driver_date},
-        {L"DriverVersion", _driver_version},
-        {L"MatchingDeviceId", _matching_device_id},
-        {L"InfPath", _inf_path},
-        {L"InfSection", _inf_section},
-        {L"InfSectionExt", _inf_section_ext}};
+        {Props::DRIVER_DESC, _driver_desc},
+        {Props::PROVIDER_NAME, _provider_name},
+        {Props::DRIVER_DATE, _driver_date},
+        {Props::DRIVER_VERSION, _driver_version},
+        {Props::MATCHING_DEVICE_ID, _matching_device_id},
+        {Props::INF_PATH, _inf_path},
+        {Props::INF_SECTION, _inf_section},
+        {Props::INF_SECTION_EXT, _inf_section_ext}};
 
     auto it = properties_map.find(value);
     if (it == properties_map.end())
