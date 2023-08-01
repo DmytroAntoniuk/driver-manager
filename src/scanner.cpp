@@ -20,8 +20,6 @@ void Scanner::Start()
     for (DWORD index = 0; SetupDiEnumDeviceInfo(h_device_info, index, &device_info_data); ++index)
     {
         Device current_device = State::GetInstance().AddDevice(h_device_info, device_info_data);
-        if (current_device.GetDriver().empty())
-            continue;
     }
 
     SetupDiDestroyDeviceInfoList(h_device_info);

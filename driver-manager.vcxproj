@@ -189,6 +189,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\device.cpp" />
+    <ClCompile Include="src\driver.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -204,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\device.h" />
+    <ClInclude Include="include\driver.h" />
     <ClInclude Include="include\logger-configurator.h" />
     <ClInclude Include="include\logs-dir-path.h" />
     <ClInclude Include="include\scanner.h" />

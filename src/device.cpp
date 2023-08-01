@@ -7,6 +7,15 @@
 Device::Device(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data) : _h_dev_info(h_dev_info), _dev_info_data(dev_info_data)
 {
     LOG_DEBUG("ctor");
+
+    LoadProps();
+    LoadDriver();
+}
+
+void Device::LoadProps()
+{
+    LOG_DEBUG("init props");
+
     const std::array<DWORD, 8> props = {
         SPDRP_DEVICEDESC, SPDRP_HARDWAREID, SPDRP_COMPATIBLEIDS, SPDRP_DRIVER, SPDRP_MFG, SPDRP_FRIENDLYNAME, SPDRP_CAPABILITIES, SPDRP_CONFIGFLAGS};
 
@@ -14,6 +23,35 @@ Device::Device(HDEVINFO h_dev_info, SP_DEVINFO_DATA& dev_info_data) : _h_dev_inf
     {
         ReadProperty(prop);
     }
+}
+
+void Device::LoadDriver()
+{
+    LOG_DEBUG("init driver");
+
+    if (_driver_id.empty())
+    {
+        LOG_ERROR("driver for {} not found", GetDeviceDesc());
+        return;
+    }
+
+    HKEY hkey;
+    std::wstring subkey = std::format(L"SYSTEM\\CurrentControlSet\\Control\\Class\\{}", StringHelper::Converter::ToString(_driver_id));
+    int ret             = RegOpenKeyEx(HKEY_LOCAL_MACHINE, subkey.c_str(), 0, KEY_QUERY_VALUE, &hkey);
+    switch (ret)
+    {
+        case ERROR_SUCCESS:
+            _driver = Driver{hkey};
+            break;
+
+        default:
+            LOG_DEBUG("RegOpenKeyEx. ret={}", ret);
+
+        case ERROR_FILE_NOT_FOUND:
+            break;
+    }
+
+    RegCloseKey(hkey);
 }
 
 void Device::ReadProperty(const DWORD id)
@@ -24,7 +62,7 @@ void Device::ReadProperty(const DWORD id)
         {SPDRP_DEVICEDESC, _device_desc},
         {SPDRP_HARDWAREID, _hardware_id},
         {SPDRP_COMPATIBLEIDS, _compatible_ids},
-        {SPDRP_DRIVER, _driver},
+        {SPDRP_DRIVER, _driver_id},
         {SPDRP_MFG, _mfg},
         {SPDRP_FRIENDLYNAME, _friendly_name},
         {SPDRP_CAPABILITIES, _capabilities},
@@ -55,7 +93,7 @@ const std::wstring& Device::GetHardwareId() const { return _hardware_id; }
 
 const std::wstring& Device::GetCompatibleIds() const { return _compatible_ids; }
 
-const std::wstring& Device::GetDriver() const { return _driver; }
+const std::wstring& Device::GetDriverId() const { return _driver_id; }
 
 const std::wstring& Device::GetMfg() const { return _mfg; }
 

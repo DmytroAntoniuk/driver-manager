@@ -14,6 +14,9 @@
     <ClCompile Include="src\state.cpp">
       <Filter>state</Filter>
     </ClCompile>
+    <ClCompile Include="src\driver.cpp">
+      <Filter>driver</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="scanner">
@@ -33,6 +36,9 @@
     </Filter>
     <Filter Include="state">
       <UniqueIdentifier>{0bd25a94-afc9-49c0-accf-d2dc81e29dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="driver">
+      <UniqueIdentifier>{63131e73-71c7-457d-905a-7753ff784a98}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="include\state.h">
       <Filter>state</Filter>
+    </ClInclude>
+    <ClInclude Include="include\driver.h">
+      <Filter>driver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
